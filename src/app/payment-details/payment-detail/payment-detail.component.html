@@ -1,0 +1,49 @@
+<form [formGroup]="paymentDetail" autocomplete="off">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user circle" [ngClass]="{'red-icon': paymentDetail.get('CardOwnerName').invalid && paymentDetail.get('CardOwnerName').touched, 'green-icon': paymentDetail.get('CardOwnerName').valid }"  ></i>
+        </div>
+      </div>
+      <input #CardOwnerName formControlName="CardOwnerName" name="CardOwnerName" class="form-control" placeholder="Card Owner Name" required>
+    </div>  
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="far fa-credit-card circle"></i>
+        </div>
+      </div>
+      <input #CardNumber formControlName="CardNumber" name="CardNumber" class="form-control" placeholder="16 Card Number" required maxlength="16" minlength="16">
+    </div>  
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-7">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-calendar-alt circle"></i>
+        </div>
+      </div>
+      <input #ExpirationDate formControlName="ExpirationDate" name="ExpirationDate" class="form-control" placeholder="MM/YY" required maxlength="5" minlength="5">
+    </div>  
+  </div>
+  <div class="form-group col-md-5">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-key circle" [class.green-icon]="CVV.valid" [class.red-icon]="CVV.invalid && CVV.touched"></i>
+        </div>
+      </div>
+      <input type="password" #CVV formControlName="CVV" name="CVV" class="form-control" placeholder="CVV" required maxlength="3" minlength="3">
+    </div>  
+  </div>
+</div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit">
+      <i class="fas fa-database"> Submit</i> 
+    </button>
+  </div>
+</form>
